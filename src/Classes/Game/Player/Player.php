@@ -18,8 +18,9 @@ class Player extends Value implements IPlayer {
         protected DateTime $birthDate,
         protected Gender $gender
     ) {
-        if(!UuidV8::getFactory()->getValidator()->validate($this->uuid))
+        if(!UuidV8::getFactory()->getValidator()->validate($this->uuid)){
             throw new InvalidArgumentException('Invalid uuid');
+        }
     }
     public function getName(): String {
         return $this->name;

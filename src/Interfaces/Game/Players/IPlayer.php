@@ -6,7 +6,7 @@ use Arm\Interfaces\Shared\IValue;
 
 interface IPlayer extends IValue {
     public function getName(): String;
-	public function getBirthDate(): String;
-	public function getAge();
+    public function getBirthDate(): String;
+    public function getAge();
     public function reset(): void;
 }

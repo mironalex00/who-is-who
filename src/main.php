@@ -2,13 +2,16 @@
 
 require_once (__DIR__ . '/../vendor/autoload.php');
 
+use Arm\Enums\Game\Colors\EyeColors;
+use Arm\Enums\Game\Colors\HairColors;
 use Arm\Enums\Shared\Gender;
+use Arm\Enums\Shared\Profession;
 use Arm\Game\Answers\Answer;
 use Arm\Game\Answers\Answers;
+use Arm\Game\Characters\Character;
 use Arm\Game\Player\Player;
 
 use Ramsey\Uuid\Rfc4122\UuidV8;
-
 
 $player = new Player(
     UuidV8::uuid7()->toString(),
@@ -26,8 +29,22 @@ $answers = new Answers(
     $answer2
 ); 
 
-var_dump($answers);
+$character = new Character(
+    'character_one',
+    'urlImg',
+    Gender::MALE,
+    EyeColors::BLUE(),
+    HairColors::BLACK(),
+    Profession::ACTRESS,
+    new DateTime('1999-12-31'),
+    180,
+    true,
+    'Spain',
+    'Spain',
+    $answers,
+);
+
+var_dump($character);
 
 exit()
-
 ?>
