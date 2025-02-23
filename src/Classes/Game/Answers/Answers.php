@@ -1,0 +1,36 @@
+<?php declare(strict_types=1);
+
+namespace Arm\Game\Answers;
+
+use Arm\Interfaces\Game\Answers\IAnswer;
+use Arm\Interfaces\Game\Players\IPlayer;
+use Arm\Interfaces\Game\Answers\IAnswers;
+
+use ArrayObject;
+
+final class Answers implements IAnswers {
+	private ArrayObject $answers;
+	final public function __construct( 
+        public readonly IPlayer $player, 
+        IAnswer ...$answers
+    ){
+		$this->answers = new ArrayObject($answers);
+	}
+    public function add(IAnswer $value): void {
+        $this->answers->append($value);
+    }
+    public function get(int $index) : IAnswer|false {
+        if($this->answers->offsetExists($index)) 
+            return $this->answers->offsetGet($index);
+        return false;
+    }
+    public function remove( Int $index ): void {
+        $this->answers->offsetUnset($index);
+    }
+    public function update( int $index, IAnswer $value ): void {
+        $this->answers->offsetSet($index, $value);
+    }
+    public function reset(): void {
+        $this->answers->exchangeArray([]);
+    }
+}

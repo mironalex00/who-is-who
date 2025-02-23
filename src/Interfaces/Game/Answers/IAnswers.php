@@ -1,0 +1,10 @@
+<?php declare(strict_types=1);
+
+namespace Arm\Interfaces\Game\Answers;
+
+interface IAnswers {
+    public function add(IAnswer $value): void;
+    public function get(int $index) : IAnswer|false;
+    public function remove( Int $index ): void;
+    public function update( int $index, IAnswer $value ): void;
+}
