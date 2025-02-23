@@ -30,10 +30,17 @@ abstract class Value implements IValue {
         return true;
 	}
     public function reset(): void {
-        foreach ((new ReflectionObject($this))->getProperties() as $propiedad) {
-            $propiedad->setAccessible(true);
-            unset($this->{$propiedad->getName()});
+        foreach ((new ReflectionObject($this))->getProperties() as $property) {
+            $property->setAccessible(true);
+            if(!$property->isReadOnly() && !$property->isStatic()) {
+                unset($this->{$property->getName()});
+            }
         }
     }
     #endregion
+    #region String methods
+    public function toString(): string { return $this->__toString(); }
+    public function __toString(): string { return json_encode($this); }
+    #endregion
+
 }

@@ -14,17 +14,17 @@ use function array_key_exists;
 use function get_class;
 
 abstract class Enum extends Value implements IEnum {
-    protected String $key;
     protected Bool|Int|Float|String $value;
+    protected String $key;
     protected static Array $cache = [];
     protected static Array $instances = [];
     #region Constructor
-    public function __construct(Bool|Int|Float|String $value) { 
-        if ($value instanceof static) {
-            $this->value = $value->get();
+    final public function __construct(Bool|Int|Float|String|IEnum $enumValue) { 
+        if ($enumValue instanceof static) {
+            $enumValue = $enumValue->get();
         }
-        $this->key = static::assertValidValueReturningKey($value);
-        $this->value = $value;
+        $this->key = static::assertValidValueReturningKey($enumValue);
+        $this->value = $enumValue;
     }
     #endregion
     #region Public static methods
@@ -42,7 +42,11 @@ abstract class Enum extends Value implements IEnum {
     }
     #endregion
     #region Public methods
-    public function get(): bool|int|float|string { return $this->value; }
+    public function get(): bool|int|float|string|null {
+        if(!isset($this->value))
+            return null;
+        return $this->value;
+    }
     public function equals(IValue $val): bool {
         return $val instanceof self
             && $this->get() === $val->get()
@@ -75,13 +79,12 @@ abstract class Enum extends Value implements IEnum {
     }
     #endregion
     #region Forbidden methods
-    public function __toString() {
+    public function __toString(): String {
         return (string)$this->value;
     }
-    public function __wakeup() {
-        if ($this->key === null) {
+    public function __wakeup(): void {
+        if ($this->key === null) 
             $this->key = static::search($this->value);
-        }
     }
     #endregion
 };

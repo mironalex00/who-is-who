@@ -33,8 +33,8 @@ $character = new Character(
     'character_one',
     'urlImg',
     Gender::MALE,
-    EyeColors::BLUE(),
-    HairColors::BLACK(),
+    new EyeColors(EyeColors::BLUE()),   // EyeColors::BLUE() 
+    new HairColors(HairColors::BLACK()), // HairColors::BLACK(),
     Profession::ACTRESS,
     new DateTime('1999-12-31'),
     180,
@@ -44,6 +44,15 @@ $character = new Character(
     $answers,
 );
 
-var_dump($character);
+$color = new HairColors(HairColors::BLACK());
+
+var_dump ($color);
+
+$color->reset();
+
+var_dump ($color->get());
+
+
+exit();
 
 ?>
