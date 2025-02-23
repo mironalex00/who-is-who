@@ -4,6 +4,7 @@ namespace Arm\Enums\Shared;
 
 use Arm\Interfaces\Shared\IEnum;
 use Arm\Interfaces\Shared\IValue;
+use Arm\Shared\Value;
 
 use BadMethodCallException;
 use UnexpectedValueException;
@@ -12,7 +13,7 @@ use function array_search;
 use function array_key_exists;
 use function get_class;
 
-abstract class Enum implements IEnum {
+abstract class Enum extends Value implements IEnum {
     protected String $key;
     protected Bool|Int|Float|String $value;
     protected static Array $cache = [];

@@ -31,13 +31,11 @@
             "Arm\\Enums\\": "src/Enums",
             "Arm\\Interfaces\\": "src/Interfaces"
         },
-        "files": [
-            "src/main.php"
-        ]
+        "files": [ "src/main.php" ]
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "test/"
+            "Tests\\": "tests/"
         }
     }
 }

@@ -46,5 +46,4 @@ $character = new Character(
 
 var_dump($character);
 
-exit()
 ?>

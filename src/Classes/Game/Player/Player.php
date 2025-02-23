@@ -18,9 +18,8 @@ class Player extends Value implements IPlayer {
         protected DateTime $birthDate,
         protected Gender $gender
     ) {
-        if(!UuidV8::getFactory()->getValidator()->validate($this->uuid)){
+        if(!UuidV8::getFactory()->getValidator()->validate($this->uuid))
             throw new InvalidArgumentException('Invalid uuid');
-        }
     }
     public function getName(): String {
         return $this->name;
@@ -32,9 +31,4 @@ class Player extends Value implements IPlayer {
         return  $this->birthDate->diff(new DateTime())->y;
     }
     public function getGender(): String {  return $this->gender->value;  }
-    public function reset(): void { 
-        unset($this->name);
-        unset($this->birthDate);
-        unset($this->gender);
-    }
 }
