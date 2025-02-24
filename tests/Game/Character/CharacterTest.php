@@ -12,6 +12,7 @@ class CharacterTest extends TestCase {
     public static function setUpBeforeClass(): void {
         self::setUpCharacterBeforeClass();
     }
+    #region Character values
     public function testCanGetInstanciated() {
         $this->assertInstanceOf(Character::class, self::$character);
     }
@@ -48,13 +49,17 @@ class CharacterTest extends TestCase {
     public function testCanGetCharacterCurrentLocation() {
         $this->assertEquals(self::$charCurrentLocation, self::$character->currentLocation);
     }
-    public function testCanGetCharacterAnswers() {
-        $this->assertEquals(self::$answers, self::$character->answers);
+    #endregion
+    public function testCharacterHasQuestions() {
+        $this->assertGreaterThanOrEqual(self::$questions->count(), self::$character->questions->count());
     }
-    public function testCanGetCharacterAnswersCount() {
-        $this->assertEquals(1, self::$character->answers->count());
+    public function testCharacterHasFirstQuestionAnswer() {
+        $this->assertGreaterThanOrEqual(1, self::$character->questions->get(0)->getAnswers()->count());
+    }
+    public function testCharacterHasFirstQuestionCorrectAnswer() {
+        $this->assertTrue(self::$character->questions->get(0)->validate(self::$answer));
     }
     public function testCanGetCharacterAnswer() {
-        $this->assertEquals(self::$answer, self::$character->answers->get(0));
+        $this->assertEquals(self::$answer, self::$character->questions->get(0)->getAnswers()->get(0));
     }
 }

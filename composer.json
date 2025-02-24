@@ -24,6 +24,12 @@
         "fakerphp/faker": "^1.23",
         "phpunit/phpunit": "^11.0.1"
     },
+    "scripts": {
+        "post-install-cmd": [
+            "@test"
+        ],
+        "tests": "./vendor/bin/phpunit"
+    },
     "autoload": {
         "psr-4": {
             "Arm\\Game\\": "src/Classes/Game",

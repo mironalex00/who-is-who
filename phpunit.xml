@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/schema/11.4.xsd"
+         backupGlobals="false"
+         backupStaticProperties="false"
          bootstrap="vendor/autoload.php"
          colors="true"
+         stopOnError="true"
+         stopOnFailure="true"
+         stopOnDefect="true"
+         processIsolation="false"
+         cacheResult="false"
+         executionOrder="size"
+         resolveDependencies="true"
+         displayDetailsOnIncompleteTests="true"
+         displayDetailsOnSkippedTests="true"
 >
     <testsuites>
         <testsuite name="Application game answer classes">
@@ -35,4 +46,11 @@
         <!-- <env name="DB_DATABASE" value=":memory:"/> -->
         <env name="MAIL_MAILER" value="array"/>
     </php>
+    <!--
+    <coverage>
+        <report>
+            <html outputDirectory="reports" />
+        </report>
+    </coverage>
+    -->
 </phpunit>

@@ -7,12 +7,12 @@ use Arm\Enums\Game\Colors\HairColors;
 use Arm\Enums\Shared\Gender;
 use Arm\Enums\Shared\Profession;
 use Arm\Game\Characters\Character;
-use Tests\Game\Answers\Traits\AnswersTrait;
 
 use DateTime;
+use Tests\Game\Questions\Traits\QuestionsTrait;
 
 trait CharacterTrait {
-    use AnswersTrait;
+    use QuestionsTrait;
     private static Character $character;
     private static string $charName = 'Test Character';
     private static string $charImg = 'https://randomuser.me/api/portraits/men/1.jpg';
@@ -26,7 +26,7 @@ trait CharacterTrait {
     private static String $charNationality = 'Spain';
     private static String $charCurrentLocation = 'Spain';
     public static function setUpCharacterBeforeClass(): void {
-        self::setUpAnswersBeforeClass();
+        self::setUpQuestionsBeforeClass();
         self::$charEyeColor = EyeColors::BLUE();
         self::$charHairColor = HairColors::BLACK();
         self::$charBDay = new DateTime('1999-12-31');
@@ -42,7 +42,7 @@ trait CharacterTrait {
             self::$charAlive,
             self::$charNationality,
             self::$charCurrentLocation,
-            self::$answers,
+            self::$questions,
         );
     }
 }
