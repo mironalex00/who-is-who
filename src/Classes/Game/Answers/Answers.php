@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 namespace Arm\Game\Answers;
 
 use Arm\Interfaces\Game\Answers\IAnswer;
@@ -32,5 +33,8 @@ final class Answers extends Value implements IAnswers {
     }
     public function reset(): void {
         $this->answers->exchangeArray([]);
+    }
+    public function count(): int {
+        return $this->answers->count();
     }
 }

@@ -3,14 +3,12 @@
 namespace Tests\Game\Player;
 
 use Tests\Game\Answers\Traits\AnswersTrait;
-
 use Tests\TestCase;
 
 class AnswersTest extends TestCase {
     use AnswersTrait;
     public static function setUpBeforeClass(): void {
         self::setUpAnswersBeforeClass();
-        \var_dump(self::$answers);
     }
     public function testCanGetName() {
         $this->assertNotNull(self::$answers);

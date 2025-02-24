@@ -17,6 +17,9 @@
         <testsuite name="Application game color enums">
             <directory>tests/Game/Colors</directory>
         </testsuite>
+        <testsuite name="Application game character class">
+            <directory>tests/Game/Character</directory>
+        </testsuite>
     </testsuites>
     <!-- <source>
         <include>
