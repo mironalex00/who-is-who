@@ -2,7 +2,9 @@
 
 namespace Arm\Interfaces\Game\Answers;
 
-interface IAnswers {
+use Arm\Interfaces\Shared\IValue;
+
+interface IAnswers extends IValue {
     public function add(IAnswer $value): void;
     public function get(int $index) : IAnswer|false;
     public function remove( Int $index ): void;

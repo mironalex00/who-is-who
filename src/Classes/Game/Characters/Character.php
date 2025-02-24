@@ -7,9 +7,11 @@ use Arm\Enums\Game\Colors\HairColors;
 use Arm\Enums\Shared\Gender;
 use Arm\Enums\Shared\Profession;
 use Arm\Interfaces\Game\Answers\IAnswers;
+use Arm\Shared\Value;
+
 use DateTime;
 
-class Character {
+class Character extends Value {
     public function __construct( 
         public readonly string $name,
         public readonly string $urlImg,

@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
-
 namespace Arm\Game\Answers;
 
 use Arm\Interfaces\Game\Answers\IAnswer;
 use Arm\Interfaces\Game\Players\IPlayer;
 use Arm\Interfaces\Game\Answers\IAnswers;
+use Arm\Shared\Value;
 
 use ArrayObject;
 
-final class Answers implements IAnswers {
+final class Answers extends Value implements IAnswers {
 	private ArrayObject $answers;
 	final public function __construct( 
         public readonly IPlayer $player, 
