@@ -3,22 +3,34 @@
 namespace Arm\Game\Answers;
 
 use Arm\Interfaces\Game\Answers\IAnswer;
-use Arm\Interfaces\Game\Players\IPlayer;
 use Arm\Interfaces\Game\Answers\IAnswers;
 use Arm\Shared\Value;
 
 use ArrayObject;
 
+use function is_null;
+use function is_bool;
+
 final class Answers extends Value implements IAnswers {
 	private ArrayObject $answers;
 	final public function __construct( 
-        public readonly IPlayer $player, 
         IAnswer ...$answers
     ){
 		$this->answers = new ArrayObject($answers);
 	}
     public function add(IAnswer $value): void {
         $this->answers->append($value);
+    }
+    public function filter( callable $callback ): IAnswer|false {
+        for($i = 0; $i < $this->answers->count(); $i++) {
+            $answer = $this->answers->offsetGet($i);
+            $result = $callback($answer);
+            if(!is_null($result))
+                if(is_bool($result))
+                    if(!(!$result))
+                        return $answer;
+        }
+        return false;
     }
     public function get(int $index) : IAnswer|false {
         if($this->answers->offsetExists($index)) 

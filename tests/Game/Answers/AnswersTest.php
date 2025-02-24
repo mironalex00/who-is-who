@@ -2,7 +2,9 @@
 
 namespace Tests\Game\Player;
 
+use Arm\Interfaces\Game\Answers\IAnswers;
 use Tests\Game\Answers\Traits\AnswersTrait;
+
 use Tests\TestCase;
 
 class AnswersTest extends TestCase {
@@ -10,11 +12,11 @@ class AnswersTest extends TestCase {
     public static function setUpBeforeClass(): void {
         self::setUpAnswersBeforeClass();
     }
-    public function testCanGetName() {
-        $this->assertNotNull(self::$answers);
+    public function testAnswersAreInstanciated() {
+        $this->assertInstanceOf(IAnswers::class, self::$answers);
     }
-    public function testAnswersHasPlayer() {
-        $this->assertNotNull(self::$answers->player);
+    public function testCanGetAnswers() {
+        $this->assertNotNull(self::$answers);
     }
     public function testAnswersHasAtLeastOneAnswer() {
         $this->assertNotFalse(self::$answers->get(0));

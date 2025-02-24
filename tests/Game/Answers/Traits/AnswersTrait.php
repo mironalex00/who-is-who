@@ -10,6 +10,6 @@ trait AnswersTrait {
     protected static Answers $answers;
     public static function setUpAnswersBeforeClass(): void {
         self::setUpAnswerBeforeClass();
-        self::$answers = new Answers(self::$player, ...self::getMultipleAnswers());
+        self::$answers = new Answers(...self::getMultipleAnswers());
     }
 }

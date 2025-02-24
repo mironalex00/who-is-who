@@ -5,20 +5,23 @@
          colors="true"
 >
     <testsuites>
-        <testsuite name="Application shared classes">
-            <directory>tests/Shared</directory>
-        </testsuite>
         <testsuite name="Application game answer classes">
             <directory>tests/Game/Answers</directory>
-        </testsuite>
-        <testsuite name="Application game player classes">
-            <directory>tests/Game/Player</directory>
         </testsuite>
         <testsuite name="Application game color enums">
             <directory>tests/Game/Colors</directory>
         </testsuite>
         <testsuite name="Application game character class">
             <directory>tests/Game/Character</directory>
+        </testsuite>
+        <testsuite name="Application game player classes">
+            <directory>tests/Game/Player</directory>
+        </testsuite>
+        <testsuite name="Application game questions class">
+            <directory>tests/Game/Questions</directory>
+        </testsuite>
+        <testsuite name="Application shared classes">
+            <directory>tests/Shared</directory>
         </testsuite>
     </testsuites>
     <!-- <source>

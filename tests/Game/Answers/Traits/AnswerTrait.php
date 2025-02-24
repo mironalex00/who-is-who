@@ -11,12 +11,10 @@ trait AnswerTrait {
     protected static String $defaultAnswer = 'test_1';
     public static function setUpAnswerBeforeClass(): void {
         self::setUpPlayerBeforeClass();
-        self::$answer = new Answer( self::$defaultAnswer );
+        self::$answer = new Answer( self::$defaultAnswer, true );
     }
-    public static function getMultipleAnswers(bool|int|float|string ...$answers): array {
-        return array_map(
-            fn(bool|int|float|string $answer) => new Answer($answer), 
-            [self::$defaultAnswer, ...$answers]
-        );
+    public static function getMultipleAnswers(bool|int|float|string ...$answer): array {
+        $answers = array_map(function ($answer) { return new Answer($answer); }, $answer);
+        return [self::$answer, ...$answers];
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Tests\Game\Player;
 
-use Tests\TestCase;
 use Arm\Enums\Shared\Gender;
 use Arm\Game\Player\Player;
+use Arm\Interfaces\Game\Players\IPlayer;
 use Tests\Game\Player\Traits\PlayerTrait;
 
 use InvalidArgumentException;
 use DateTime;
+
+use Tests\TestCase;
 
 class PlayerTest extends TestCase {
     use PlayerTrait;
@@ -16,7 +18,7 @@ class PlayerTest extends TestCase {
         self::setUpPlayerBeforeClass();
     }
     public function testCanBeInstantiated() {
-        $this->assertInstanceOf(Player::class, self::$player);
+        $this->assertInstanceOf(IPlayer::class, self::$player);
     }
     public function testCanNotBeInstantiatedWithInvalidUuid() {
         $this->expectException(InvalidArgumentException::class);

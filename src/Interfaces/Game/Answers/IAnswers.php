@@ -9,5 +9,6 @@ interface IAnswers extends IValue {
     public function get(int $index) : IAnswer|false;
     public function remove( Int $index ): void;
     public function update( int $index, IAnswer $value ): void;
+    public function filter( callable $callback ): IAnswer|false;
     public function count(): int;
 }
