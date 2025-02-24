@@ -8,8 +8,14 @@
         <testsuite name="Application shared classes">
             <directory>tests/Shared</directory>
         </testsuite>
-        <testsuite name="Application game classes">
+        <testsuite name="Application game answer classes">
+            <directory>tests/Game/Answers</directory>
+        </testsuite>
+        <testsuite name="Application game player classes">
             <directory>tests/Game/Player</directory>
+        </testsuite>
+        <testsuite name="Application game color enums">
+            <directory>tests/Game/Colors</directory>
         </testsuite>
     </testsuites>
     <!-- <source>
