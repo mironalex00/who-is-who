@@ -24,7 +24,7 @@ class Character extends Value {
         public readonly bool $isAlive,
         public readonly string $nationality,
         public readonly string $currentLocation,
-		public readonly IQuestions $questions,
+        public readonly IQuestions $questions,
     ) {}
     public function __toString(): string {
         return json_encode($this);

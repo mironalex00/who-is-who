@@ -12,7 +12,7 @@ trait QuestionsTrait {
     protected static Questions $questions;
     public static function setUpQuestionsBeforeClass(): void {
         self::setUpQuestionBeforeClass();
-        self::$questions = new Questions(self::$player, self::$question);
+        self::$questions = new Questions(self::$question);
         self::$questions->add(
             new Question(
                 "¿Foo?",

@@ -10,7 +10,6 @@ trait AnswerTrait {
     protected static Answer $answer;
     protected static String $defaultAnswer = 'test_1';
     public static function setUpAnswerBeforeClass(): void {
-        self::setUpPlayerBeforeClass();
         self::$answer = new Answer( self::$defaultAnswer, true );
     }
     public static function getMultipleAnswers(bool|int|float|string ...$answer): array {

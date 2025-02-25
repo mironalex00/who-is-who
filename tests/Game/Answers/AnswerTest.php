@@ -8,7 +8,6 @@ use Tests\Game\Player\Traits\PlayerTrait;
 use Tests\TestCase;
 
 class AnswerTest extends TestCase {
-    use PlayerTrait;
     use AnswerTrait;
     public static function setUpBeforeClass(): void {
         self::setUpAnswerBeforeClass();

@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 namespace Arm\Game\Questions;
 
-use Arm\Interfaces\Game\Players\IPlayer;
 use Arm\Interfaces\Game\Questions\IQuestion;
 use Arm\Interfaces\Game\Questions\IQuestions;
 use Arm\Shared\Value;
@@ -11,7 +10,6 @@ use ArrayObject;
 final class Questions extends Value implements IQuestions {
 	private ArrayObject $questions;
 	final public function __construct( 
-        public readonly IPlayer $player, 
         IQuestion ...$question
     ){
 		$this->questions = new ArrayObject($question);

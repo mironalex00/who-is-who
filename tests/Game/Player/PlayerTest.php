@@ -23,7 +23,13 @@ class PlayerTest extends TestCase {
     public function testCanNotBeInstantiatedWithInvalidUuid() {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid uuid');
-        new Player('uuid', self::$name, self::$birthDateDT, Gender::MALE);        
+        new Player(
+            'uuid', 
+            self::$name, 
+            self::$birthDateDT, 
+            Gender::MALE, 
+            self::$character
+        );
     }
     public function testCanGetName() {
         $this->assertEquals(self::$name, self::$player->getName());

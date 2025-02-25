@@ -3,6 +3,7 @@
 namespace Arm\Game\Player;
 
 use Arm\Enums\Shared\Gender;
+use Arm\Game\Characters\Character;
 use Arm\Interfaces\Game\Players\IPlayer;
 use Arm\Shared\Value;
 
@@ -16,7 +17,8 @@ class Player extends Value implements IPlayer {
         protected string $uuid,
         protected string $name,
         protected DateTime $birthDate,
-        protected Gender $gender
+        protected Gender $gender,
+        public readonly Character $character
     ) {
         if(!UuidV8::getFactory()->getValidator()->validate($this->uuid))
             throw new InvalidArgumentException('Invalid uuid');
