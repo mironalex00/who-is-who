@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Game\Player;
+namespace Tests\Game\Character;
 
 use Arm\Game\Characters\Character;
 use Tests\Game\Character\Traits\CharacterTrait;

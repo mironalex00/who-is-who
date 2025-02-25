@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Game\Player;
+namespace Tests\Game\Answers;
 
 use Arm\Interfaces\Game\Answers\IAnswers;
 use Tests\Game\Answers\Traits\AnswersTrait;
