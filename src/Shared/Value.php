@@ -1,13 +1,14 @@
 <?php declare(strict_types=1);
 
+#region Namespace
 namespace Arm\Shared;
-
+#endregion
 #region ORM Definitions
 use Arm\Shared\Traits\DoctrineTraits;
 use Doctrine\ORM\Mapping\MappedSuperclass;
 #endregion
 #region Game Objects
-use Arm\Interfaces\Shared\IValue;
+use Arm\Contracts\Shared\IValue;
 #endregion
 #region PHP Functions
 use function basename;
@@ -21,7 +22,6 @@ use ReflectionObject;
 abstract class Value implements IValue {
     #region Fields
     use DoctrineTraits;
-    protected string|int $id;
     #endregion
     #region Methods
 	public function equals(IValue $val): bool {
