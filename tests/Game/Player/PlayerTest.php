@@ -44,9 +44,15 @@ class PlayerTest extends TestCase {
     public function testCanGetGender() {
         $this->assertEquals(Gender::MALE->value, self::$player->getGender());
     }
+    public function testCanGetCharacterFromPlayer() {
+        $this->assertNotNull(self::$player->character);
+    }
+    public function testIsCharacterFromPlayerInstanciated() {
+        $this->assertInstanceOf(self::$character::class, self::$player->character);
+    }
     public function testCanReset() {
         self::$player->reset();
-        $this->assertPropertyUninitialized(self::$player, 'uuid');
+        $this->assertPropertyUninitialized(self::$player, 'id');
         $this->assertPropertyUninitialized(self::$player, 'name');
         $this->assertPropertyUninitialized(self::$player, 'birthDate');
         $this->assertPropertyUninitialized(self::$player, 'gender');

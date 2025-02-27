@@ -1,10 +1,15 @@
 <?php declare(strict_types=1);
+
 namespace Arm\Game\Questions;
 
+#region ORM Definitions
+#endregion
+#region Game Objects
 use Arm\Interfaces\Game\Answers\IAnswer;
 use Arm\Interfaces\Game\Answers\IAnswers;
 use Arm\Interfaces\Game\Questions\IQuestion;
 use Arm\Shared\Value;
+#endregion
 
 final class Question extends Value implements IQuestion {
     public function __construct(

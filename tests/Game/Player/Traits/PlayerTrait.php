@@ -25,6 +25,6 @@ trait PlayerTrait {
             Gender::MALE,
             self::$character
         );
-        parent::setUpBeforeClass();
+        // parent::setUpBeforeClass();
     }
 }
