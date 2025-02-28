@@ -1,14 +1,15 @@
 <?php declare(strict_types=1);
 
 #region Namespace
-namespace Arm\Shared;
+namespace App\Shared;
 #endregion
+
 #region ORM Definitions
-use Arm\Shared\Traits\DoctrineTraits;
+use App\Shared\Traits\DoctrineTraits;
 use Doctrine\ORM\Mapping\MappedSuperclass;
 #endregion
 #region Game Objects
-use Arm\Contracts\Shared\IValue;
+use App\Contracts\Shared\IValue;
 #endregion
 #region PHP Functions
 use function basename;

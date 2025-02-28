@@ -1,18 +1,9 @@
-<?php declare(strict_types=1);
-      use Arm\Game\Entities\Answer;
-      use Arm\Game\Entities\Question;
-#define('MAX_PLAYERS', 2);
-#define('MAX_PLAYER_ATTEMPTS', 1);
+<?php
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+use App\Kernel;
 
-$answer = new Answer('Test');
-$answer2 = new Answer('Bar', true);
+require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
-$question = new Question('¿Foo?', $answer);
-
-$question->addAnswer($answer2);
-
-var_dump($question);
-
-?>
+return function (array $context) {
+    return new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
+};

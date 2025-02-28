@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 #region Namespace
-namespace Arm\Shared\Traits;
+namespace App\Shared\Traits;
 #endregion
 
 #region Doctrine Class Annotations
