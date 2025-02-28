@@ -5,6 +5,7 @@ namespace App\Entity\Game;
 #endregion
 
 #region ORM Definitions
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\Column;
