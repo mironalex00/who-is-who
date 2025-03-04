@@ -9,12 +9,13 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Routing\Attribute\Route;
 
 final class AnswerController extends AbstractController {
+    public function __construct( private BladeService $bladeService ) { }
     #[Route('/answer', name: 'app_answer_index', methods: ['GET'])]
     // #[IsGranted('ROLE_USER')]
-    public function index(BladeService $bladeService): Response {
+    public function index(): Response {
         return new Response(
-            $bladeService->render(
-                'answers.index',
+            $this->bladeService->render(
+                'answers',
                 ['title' => 'Respuestas - Home']
             )
         );

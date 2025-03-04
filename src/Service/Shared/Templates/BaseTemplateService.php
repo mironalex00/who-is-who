@@ -10,9 +10,12 @@ abstract class BaseTemplateService {
     protected readonly string $cache;
     #endregion
     #region Constructor 
-    public function __construct(string $views, string $cache) {
-        $this->views = static::joinPaths(dirname(__DIR__, 2) ,'templates', $views);
-        $this->cache = static::joinPaths(dirname(__DIR__,2), 'var', 'cache', $cache);
+    public function __construct(
+        string $projectDir,
+        string $views, 
+    ) {
+        $this->views = static::joinPaths($projectDir, 'templates', $views);
+        $this->cache = static::joinPaths($projectDir, 'var', 'cache', $views);
     }
     #endregion
     #region Public methods

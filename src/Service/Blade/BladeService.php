@@ -9,19 +9,24 @@ use App\Service\Shared\Templates\BaseTemplateService;
 #endregion
 
 #region Libraries imports
-use eftec\bladeone\BladeOne;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 #endregion
 
 class BladeService extends BaseTemplateService{
     #region Properties
-    private BladeOne $bladeOne;
+    private CustomBladeOne $bladeOne;
     #endregion
     #region Constructor 
-    public function __construct(string $templateFolder) {
+    public function __construct(
+            #[Autowire('%kernel.project_dir%')]   
+            string $project,
+            #[Autowire('%template.folder%')]            
+            string $engine,
+        ) {
         # Call parent constructor
-        parent::__construct($templateFolder, 'blade');
+        parent::__construct($project, $engine, );
         # Set the template service
-        $this->bladeOne = new BladeOne($this->views, $this->cache, BladeOne::MODE_AUTO);
+        $this->bladeOne = new CustomBladeOne($this->views, $this->cache);
     }
     #endregion
     #region Public methods
