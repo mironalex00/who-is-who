@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     @include('layouts.header')
 </head>
-<body>    
-    <main>
+<body>
+    @include('layouts.navigation')
+    <main class="container">
         @yield('content')
     </main>
     @include('layouts.footer')

@@ -1,15 +1,26 @@
 @extends('layouts.main')
 
-@section('head')
-    @include('components.headers.link', ['href' => 'css/hello-world.css'])
+@section('title', 'Página con Indentación')
+
+@section('styles')
+    @include('components.headers.link', [
+        'href' => 'css/custom.css',
+        'rel' => 'stylesheet'
+    ])
 @endsection
 
-@section('title', 'App - Answers')
-
 @section('content')
-    <h1>Hola desde Blade en Symfony</h1>
+    <div class="content">
+        <h1>Hola desde Blade en Symfony</h1>
+        <a href="https://www.google.com" rel="__blank">
+            Entrar a google
+        </a>
+    </div>
 @endsection
 
 @section('scripts')
-    @include('components.script', ['src' => 'js/custom.js'])
+    @include('components.script', [
+        'src' => 'js/app.js',
+        'defer' => true
+    ])
 @endsection

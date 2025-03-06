@@ -1,2 +1,2 @@
-<!-- Script -->
-<script src="@asset($src)" {{ isset($defer) ? 'defer' : '' }}></script>
+    <!-- Script -->
+    <script src="@asset($src)" {{ isset($defer) ? 'defer' : '' }}></script>

@@ -1,7 +1,14 @@
-<meta charset="{{ $charset ?? 'UTF-8' }}">
-<title>@yield('title', 'Aplicación')</title>
-
-@include('components.headers.meta', ['charset' => $charset ?? 'UTF-8'])
-@include('components.headers.link', ['href' => 'css/app.css'])
-
-@yield('head')
+    @yield('head')
+    <meta charset="{{ $charset ?? 'UTF-8' }}">
+    <title>@yield('title', 'Application')</title>
+    <!-- Componentes con indentación -->
+    @include('components.headers.meta', [
+        'name' => 'description',
+        'content' => 'Descripción por defecto'
+    ])
+    @include('components.headers.link', [
+        'href' => 'css/app.css',
+        'rel' => 'stylesheet'
+    ])
+    <!-- Estilos -->
+    @yield('styles')
