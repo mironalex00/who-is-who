@@ -2,12 +2,14 @@
 
 @section('title', 'Página con Indentación')
 
+{{--
 @section('styles')
     @include('components.headers.link', [
-        'href' => 'css/custom.css',
+        'href' => 'styles/custom.css',
         'rel' => 'stylesheet'
     ])
 @endsection
+--}}
 
 @section('content')
     <div class="content">

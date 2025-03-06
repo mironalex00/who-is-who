@@ -7,7 +7,7 @@
         'content' => 'Descripción por defecto'
     ])
     @include('components.headers.link', [
-        'href' => 'css/app.css',
+        'href' => 'assets/styles/app.css',
         'rel' => 'stylesheet'
     ])
     <!-- Estilos -->
